@@ -75,7 +75,8 @@
         if (!_this.chart && options) {
           _this.init();
         } else {
-          _this.chart.updateOptions(_this.options);
+          // SELECTCODE CHANGE: DO NOT UPDATE SYNCED CHARTS
+          _this.chart.updateOptions(_this.options, true, false, false);
         }
       });
       this.$watch('series', function (series) {

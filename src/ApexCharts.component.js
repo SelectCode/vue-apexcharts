@@ -36,7 +36,8 @@ export default {
       if (!this.chart && options) {
         this.init()
       } else {
-        this.chart.updateOptions(this.options)
+        // SELECTCODE CHANGE: DO NOT UPDATE SYNCED CHARTS
+        this.chart.updateOptions(this.options, true, false, false);
       }
     })
 
@@ -96,7 +97,7 @@ export default {
             if (target === undefined || target === null) {
               throw new TypeError('Cannot convert undefined or null to object')
             }
-  
+
             let output = Object(target)
             for (let index = 1; index < arguments.length; index++) {
               let source = arguments[index]
@@ -112,7 +113,7 @@ export default {
           }
         })()
       }
-  
+
       let output = Object.assign({}, target)
       if (this.isObject(target) && this.isObject(source)) {
         Object.keys(source).forEach((key) => {
